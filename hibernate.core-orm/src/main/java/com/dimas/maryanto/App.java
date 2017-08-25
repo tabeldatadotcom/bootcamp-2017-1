@@ -1,9 +1,14 @@
 package com.dimas.maryanto;
 
+import com.dimas.maryanto.model.Mahasiswa;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * Hello world!
@@ -26,9 +31,22 @@ public class App {
     }
 
     public static void main(String[] args) {
+        Mahasiswa dimas = new Mahasiswa();
+        dimas.setNim(10511148);
+        dimas.setNama("Dimas Maryanto");
+        dimas.setTanggalLahir(DateInject.setValue(1993, 03, 28));
+        dimas.setAngkatan(2011);
+        dimas.setJurusan("Sistem Komputer");
+
         App aplikasi = new App();
         SessionFactory sessionFactory = aplikasi.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
 
+        session.save(dimas);
+
+        session.getTransaction().commit();
+        session.close();
         sessionFactory.close();
     }
 }
