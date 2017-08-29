@@ -43,7 +43,11 @@ public class DepInjectionWithSpring {
 //        DepInjectionWithSpring obj = springContext.getBean(DepInjectionWithSpring.class);
 //        System.out.println(obj.toString());
 
-        OtherBean obj2 = springContext.getBean("otherBean", OtherBean.class);
-        System.out.println(obj2.getId() + ", " + obj2.getSpringDi().toString());
+//        OtherBean obj2 = springContext.getBean("otherBean", OtherBean.class);
+//        System.out.println(obj2.getId() + ", " + obj2.getSpringDi().toString());
+//
+        AnnotationBean bean = springContext.getBean(AnnotationBean.class);
+//        AnnotationBean bean = new AnnotationBean();
+        System.out.println(bean.toString());
     }
 }

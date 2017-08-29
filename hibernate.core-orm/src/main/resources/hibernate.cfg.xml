@@ -17,8 +17,12 @@
         <property name="show_sql">true</property>
 
         <!--mapping class entity-->
-        <mapping class="com.dimas.maryanto.model.Mahasiswa"/>
-        <mapping class="com.dimas.maryanto.model.Jurusan"/>
-        <mapping class="com.dimas.maryanto.model.ProgramStudi"/>
+        <!--<mapping class="com.dimas.maryanto.model.Mahasiswa"/>-->
+        <!--<mapping class="com.dimas.maryanto.model.Jurusan"/>-->
+        <!--<mapping class="com.dimas.maryanto.model.ProgramStudi"/>-->
+        <mapping class="com.dimas.maryanto.tabungan.BukuTabungan"/>
+        <mapping class="com.dimas.maryanto.tabungan.Nasabah"/>
+        <mapping class="com.dimas.maryanto.tabungan.Produk"/>
+        <mapping class="com.dimas.maryanto.tabungan.Tabungan"/>
     </session-factory>
 </hibernate-configuration>
