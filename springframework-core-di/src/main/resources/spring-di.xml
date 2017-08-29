@@ -2,9 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean class="com.dimas.maryanto.DepInjectionWithSpring">
+    <bean name="depInject" class="com.dimas.maryanto.DepInjectionWithSpring">
         <property name="url" value="jdbc:postgresql://localhost:5432"/>
         <property name="password" value="bootcamp"/>
         <property name="username" value="bootcamp"/>
+    </bean>
+
+    <bean name="otherBean" class="com.dimas.maryanto.OtherBean">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="springDi" ref="depInject"/>
+    </bean>
+
+    <bean name="otherBean2" class="com.dimas.maryanto.OtherBean">
+        <constructor-arg name="id" value="2"/>
+        <constructor-arg name="springDi" ref="depInject"/>
     </bean>
 </beans>

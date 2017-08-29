@@ -40,7 +40,10 @@ public class DepInjectionWithSpring {
 
     public static void main(String[] args) {
         ApplicationContext springContext = new ClassPathXmlApplicationContext("spring-di.xml");
-        DepInjectionWithSpring obj = springContext.getBean(DepInjectionWithSpring.class);
-        System.out.println(obj.toString());
+//        DepInjectionWithSpring obj = springContext.getBean(DepInjectionWithSpring.class);
+//        System.out.println(obj.toString());
+
+        OtherBean obj2 = springContext.getBean("otherBean", OtherBean.class);
+        System.out.println(obj2.getId() + ", " + obj2.getSpringDi().toString());
     }
 }
