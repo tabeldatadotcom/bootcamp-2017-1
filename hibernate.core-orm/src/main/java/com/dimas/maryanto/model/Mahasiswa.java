@@ -4,15 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "m_mahasiswa")
 public class Mahasiswa {
@@ -30,6 +24,47 @@ public class Mahasiswa {
     @Column(nullable = false)
     private Date tanggalLahir;
 
-    @Column(name = "jurusan", nullable = false)
-    private String jurusan;
+    @ManyToOne
+    @JoinColumn(name = "id_jurusan", nullable = false)
+    private Jurusan jurusan;
+
+    public Integer getNim() {
+        return nim;
+    }
+
+    public void setNim(Integer nim) {
+        this.nim = nim;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public Integer getAngkatan() {
+        return angkatan;
+    }
+
+    public void setAngkatan(Integer angkatan) {
+        this.angkatan = angkatan;
+    }
+
+    public Date getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+
+    public Jurusan getJurusan() {
+        return jurusan;
+    }
+
+    public void setJurusan(Jurusan jurusan) {
+        this.jurusan = jurusan;
+    }
 }
