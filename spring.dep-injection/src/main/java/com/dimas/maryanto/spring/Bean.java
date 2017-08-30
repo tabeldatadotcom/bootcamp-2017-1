@@ -1,6 +1,7 @@
 package com.dimas.maryanto.spring;
 
 import com.dimas.maryanto.spring.compenent.scan.MovieCatalog;
+import com.dimas.maryanto.spring.compenent.scan.NontonFilm;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -47,6 +48,10 @@ public class Bean {
 //        @Primary dua bean yang sama
         MovieCatalog catalog = springContext.getBean(MovieCatalog.class);
         System.out.println(catalog.toString());
+
+//        @Qualifier
+        NontonFilm nonton = springContext.getBean(NontonFilm.class);
+        System.out.println(nonton.toString());
 
 
     }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ComponentMovie {
 
+    @Primary
     @Bean
     public MovieCatalog action() {
         MovieCatalog action = new MovieCatalog();
