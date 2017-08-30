@@ -1,7 +1,5 @@
 package com.dimas.maryanto;
 
-import com.dimas.maryanto.model.Jurusan;
-import com.dimas.maryanto.model.Mahasiswa;
 import com.dimas.maryanto.tabungan.BukuTabungan;
 import com.dimas.maryanto.tabungan.Nasabah;
 import com.dimas.maryanto.tabungan.Produk;
@@ -17,7 +15,6 @@ import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -62,7 +59,7 @@ public class App {
         Nasabah nasabah = new Nasabah();
         nasabah.setNama("Sulaeman Hasim");
         Integer idNasabah = (Integer) session.save(nasabah);
-        nasabah = session.get(Nasabah.class, idNasabah);
+        nasabah = session.get(Nasabah.class, 13);
 
         Tabungan tabungan = new Tabungan();
         tabungan.setSaldo(new BigDecimal(0));

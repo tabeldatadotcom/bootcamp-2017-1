@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="com.dimas.maryanto.spring.compenent.scan"/>
+
+    <bean class="java.lang.String">
+        <constructor-arg name="value" value="Halo World!!"/>
+    </bean>
+
+    <bean id="databaseConfigurer" class="com.dimas.maryanto.spring.DatabaseConfigurer" scope="singleton">
+        <property name="url" value="jdbc:postgresql://localhost:5432/bootcamp"/>
+        <constructor-arg name="username" value="bootcamp"/>
+        <constructor-arg name="password" value="bootcamp"/>
+    </bean>
+
+    <bean id="classA" class="com.dimas.maryanto.spring.circular.dep.ClassA">
+        <property name="b" ref="classB"/>
+    </bean>
+    <bean id="classB" class="com.dimas.maryanto.spring.circular.dep.ClassB">
+        <property name="c" ref="classC"/>
+    </bean>
+    <bean id="classC" class="com.dimas.maryanto.spring.circular.dep.ClassC">
+        <property name="a" ref="classA"/>
+    </bean>
+</beans>
