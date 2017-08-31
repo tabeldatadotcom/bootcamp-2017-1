@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface NasabahRepository extends CrudRepository<Nasabah, String> {
 
-    public List<Nasabah> findAll();
+    List<Nasabah> findAll();
 
     Nasabah findByEmail(String namaEmail);
 
