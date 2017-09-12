@@ -6,13 +6,13 @@ var TipeMobil;
     TipeMobil[TipeMobil["Pickup"] = 1] = "Pickup";
     TipeMobil[TipeMobil["Truck"] = 2] = "Truck";
 })(TipeMobil || (TipeMobil = {}));
-var kijangInova = {
+let kijangInova = {
     mesin: "Toyota",
     roda: 4,
     tipe: TipeMobil.Sedan
 };
 console.log("object kijang inova " + kijangInova.roda);
-var astraHonda = {
+let astraHonda = {
     cylinder: 1,
     piston: 2
 };
