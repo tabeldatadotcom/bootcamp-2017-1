@@ -1,0 +1,47 @@
+<h1>Belajar Angular4 FORM</h1>
+<div class="container">
+    <!-- <div class="alert alert-danger">
+        Ini pesan berbahaya!!!
+    </div> -->
+    <div class="col-md-4">
+        <form #karyawanForm="ngForm" (ngSubmit)="onSubmitData(karyawanForm.value)" novalidate>
+            <div class="form-group">
+                <label>NIP</label>
+                <input #nipRef="ngModel" type="text" pattern="\d{8}" required minlength="8" maxlength="8" class="form-control" name="nip" ngModel>
+                <div class="alert alert-warning" *ngIf="nipRef.invalid && (nipRef.dirty || nipRef.touched)">
+                    <div *ngIf="nipRef.errors.required">Field nip masih kosong!!!</div>
+                    <div *ngIf="nipRef.errors.minlength">Field NIP minimal 8 karakter</div>
+                    <div *ngIf="nipRef.errors.maxlength">Field NIP maximal 8 karakter</div>
+                    <div *ngIf="nipRef.errors.pattern">Input hanya number dengan jumlah 8 karakter</div>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Nama Karyawan</label>
+                <input type="text" class="form-control" name="nama" [(ngModel)]="namaKaryawan">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" ngModel>
+            </div>
+            <div class="form-group">
+                <label>Alamat</label>
+                <textarea cols="30" rows="10" name="alamat" ngModel></textarea>
+            </div>
+            <div class="form-group">
+                <label>Kota</label>
+                <select class="form-control" name="kota" ngModel>
+                    <option value="Kab.Bandung">Kabupaten Bandung</option>
+                    <option value="Kota.Bandung">Kota Bandung</option>
+                    <option value="Jakarta">DKI Jakarta</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button [disabled]="!karyawanForm.form.valid" type="submit" class="btn btn-primary">Kirim</button>
+                <button type="reset" class="btn btn-warning">Reset</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>        
+</div>
